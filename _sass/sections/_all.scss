@@ -41,12 +41,14 @@
 
 // Hero Section
 .hero {
+  --hero-parallax: 0px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 8rem $spacing-lg $spacing-xl;
   position: relative;
+  overflow: hidden;
 
   .hero-top {
     @include flex-between;
@@ -66,6 +68,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: translateY(var(--hero-parallax));
+    transition: transform 120ms linear;
+    will-change: transform;
   }
 
   .hero-title {
@@ -99,6 +104,20 @@
     font-size: 0.75rem;
     color: $text-muted;
     letter-spacing: 0.1em;
+  }
+
+  .scroll-progress {
+    position: fixed;
+    right: $spacing-lg;
+    bottom: $spacing-md;
+    z-index: 998;
+    min-width: 3ch;
+    text-align: right;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid $border-color;
+    background: rgba($bg-primary, 0.8);
+    backdrop-filter: blur(6px);
+    pointer-events: none;
   }
 }
 
@@ -152,6 +171,14 @@
     font-size: 0.875rem;
     color: $text-muted;
     border: 1px solid $border-color;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
 
   .about-text {
@@ -209,7 +236,8 @@
 
   .post-header {
     margin-bottom: $spacing-xl;
-    max-width: 900px;
+    max-width: 800px;
+    margin-inline: auto;
   }
 
   .post-meta {
@@ -243,14 +271,168 @@
     max-width: 800px;
   }
 
+  .post-content {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
   .post-footer {
     margin-top: $spacing-2xl;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+}
+
+// Project Detail Page
+.project-page {
+  padding: 8rem 0 $spacing-2xl;
+
+  .project-header {
+    margin-bottom: $spacing-xl;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: $spacing-xs;
+    font-size: 0.75rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+  }
+
+  .project-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: $font-weight-medium;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: $spacing-sm;
+  }
+
+  .project-description {
+    margin-top: $spacing-md;
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.8;
+    max-width: 800px;
+  }
+
+  .project-hero-image {
+    margin-bottom: $spacing-xl;
+    max-width: 800px;
+    margin-inline: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .project-content {
+    max-width: 800px;
+    margin-inline: auto;
+
+    p {
+      margin-bottom: $spacing-md;
+      color: $text-secondary;
+      line-height: 1.9;
+    }
+
+    h2,
+    h3,
+    h4 {
+      margin: $spacing-xl 0 $spacing-sm;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: $font-weight-medium;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: $font-weight-medium;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+      margin-bottom: $spacing-md;
+      color: $text-secondary;
+      line-height: 1.9;
+    }
+
+    li {
+      margin-bottom: $spacing-xs;
+    }
+
+    a {
+      color: $text-primary;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: $spacing-lg;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid $border-color;
+      text-align: left;
+      padding: 0.9rem 1rem;
+    }
+
+    th {
+      font-weight: $font-weight-medium;
+      color: $text-primary;
+    }
+
+    td {
+      color: $text-secondary;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      padding: 0.15em 0.35em;
+      background: rgba($text-primary, 0.06);
+      border: 1px solid rgba($text-primary, 0.08);
+      border-radius: 6px;
+    }
+
+    pre {
+      padding: $spacing-md;
+      background: rgba($text-primary, 0.06);
+      border: 1px solid rgba($text-primary, 0.08);
+      border-radius: 12px;
+      overflow: auto;
+      margin-bottom: $spacing-lg;
+
+      code {
+        padding: 0;
+        background: none;
+        border: none;
+      }
+    }
+  }
+
+  .project-footer {
+    margin-top: $spacing-2xl;
+    max-width: 800px;
+    margin-inline: auto;
   }
 }
 
 // Prose (post content)
 .prose {
-  max-width: 760px;
+  max-width: 800px;
 
   p {
     margin-bottom: $spacing-md;
