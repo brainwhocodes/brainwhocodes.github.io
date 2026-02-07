@@ -1,0 +1,63 @@
+# Site settings
+title: Your Name | Web Designer & Developer
+description: Custom web design tailored to your brand. Creating strategic digital assets that elevate your presence and engage your audience.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+excerpt_separator: "<!--more-->"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass/SCSS settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - README.md
+  - package.json
+  - package-lock.json
+  - vite.config.js
+  - src/
+  - dist/
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      permalink: /blog/:title/
+  - scope:
+      path: ""
+    values:
+      layout: default

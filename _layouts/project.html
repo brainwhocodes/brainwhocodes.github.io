@@ -1,0 +1,34 @@
+---
+layout: default
+title: Project Layout
+---
+
+<article class="project-page">
+    <div class="container">
+        <header class="project-header">
+            <div class="project-meta">
+                <span class="project-year">{{ page.year }}</span>
+                <span class="project-category">{{ page.category }}</span>
+            </div>
+            <h1 class="project-title">{{ page.title }}</h1>
+            
+            {% if page.description %}
+            <p class="project-description">{{ page.description }}</p>
+            {% endif %}
+        </header>
+        
+        {% if page.thumbnail %}
+        <div class="project-hero-image">
+            <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}">
+        </div>
+        {% endif %}
+        
+        <div class="project-content">
+            {{ content }}
+        </div>
+        
+        <footer class="project-footer">
+            <a href="{{ '/' | relative_url }}#works" class="about-link">← Back to Projects</a>
+        </footer>
+    </div>
+</article>

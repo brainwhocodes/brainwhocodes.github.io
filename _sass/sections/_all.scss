@@ -1,0 +1,431 @@
+// Section Headers
+.section-header {
+  margin-bottom: $spacing-xl;
+
+  .section-label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-sm;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    max-width: 800px;
+    line-height: 1.4;
+  }
+}
+
+// Shared grids
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1fr;
+  }
+
+  @include respond-to(sm) {
+    gap: $spacing-lg;
+  }
+}
+
+.empty-state {
+  color: $text-secondary;
+  font-size: 1rem;
+}
+
+// Hero Section
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem $spacing-lg $spacing-xl;
+  position: relative;
+
+  .hero-top {
+    @include flex-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-xl;
+  }
+
+  .hero-label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+
+  .hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: $font-weight-medium;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: $spacing-lg;
+
+    span {
+      display: block;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: $text-secondary;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .hero-bottom {
+    @include flex-between;
+    align-items: flex-end;
+    margin-top: auto;
+    padding-top: $spacing-xl;
+  }
+
+  .hero-meta,
+  .scroll-progress {
+    font-size: 0.75rem;
+    color: $text-muted;
+    letter-spacing: 0.1em;
+  }
+}
+
+// About Section
+.about {
+  @include section-padding;
+  background: $bg-secondary;
+
+  .about-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .about-label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .about-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: $font-weight-medium;
+    line-height: 1.4;
+    max-width: 800px;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-xl;
+    align-items: start;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    background: $bg-primary;
+    @include flex-center;
+    font-size: 0.875rem;
+    color: $text-muted;
+    border: 1px solid $border-color;
+  }
+
+  .about-text {
+    max-width: 600px;
+  }
+
+  .about-description {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Projects Section
+.projects {
+  @include section-padding;
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+    }
+
+    @include respond-to(sm) {
+      gap: $spacing-lg;
+    }
+  }
+}
+
+// Blog Section
+.blog {
+  @include section-padding;
+  background: $bg-secondary;
+
+  .blog-footer {
+    margin-top: $spacing-xl;
+  }
+}
+
+// Blog Index + Post Page
+.blog-index {
+  padding: 8rem 0 $spacing-2xl;
+}
+
+.page-footer {
+  margin-top: $spacing-xl;
+}
+
+.post-page {
+  padding: 8rem 0 $spacing-2xl;
+
+  .post-header {
+    margin-bottom: $spacing-xl;
+    max-width: 900px;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: $spacing-xs;
+    font-size: 0.75rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+  }
+
+  .post-tag {
+    font-size: 0.75rem;
+    color: $text-muted;
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: $font-weight-medium;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: $spacing-sm;
+  }
+
+  .post-description {
+    margin-top: $spacing-md;
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.8;
+    max-width: 800px;
+  }
+
+  .post-footer {
+    margin-top: $spacing-2xl;
+  }
+}
+
+// Prose (post content)
+.prose {
+  max-width: 760px;
+
+  p {
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+    line-height: 1.9;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: $spacing-xl 0 $spacing-sm;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: $font-weight-medium;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: $font-weight-medium;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.25rem;
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+    line-height: 1.9;
+  }
+
+  li {
+    margin-bottom: $spacing-xs;
+  }
+
+  a {
+    color: $text-primary;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.95em;
+    padding: 0.15em 0.35em;
+    background: rgba($text-primary, 0.06);
+    border: 1px solid rgba($text-primary, 0.08);
+    border-radius: 6px;
+  }
+
+  pre {
+    padding: $spacing-md;
+    background: rgba($text-primary, 0.06);
+    border: 1px solid rgba($text-primary, 0.08);
+    border-radius: 12px;
+    overflow: auto;
+    margin-bottom: $spacing-lg;
+
+    code {
+      padding: 0;
+      background: none;
+      border: none;
+    }
+  }
+}
+
+// FAQ Section
+.faq {
+  @include section-padding;
+  background: $bg-secondary;
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// CTA Section
+.cta {
+  @include section-padding;
+  text-align: center;
+
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-lg;
+  }
+
+  .cta-text {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+    line-height: 1.8;
+  }
+}
+
+// Footer
+.footer {
+  padding: $spacing-xl 0;
+  border-top: 1px solid $border-color;
+
+  .footer-top {
+    @include flex-between;
+    margin-bottom: $spacing-xl;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      gap: $spacing-lg;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: $spacing-lg;
+
+    a {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+
+  .footer-divider {
+    color: $text-muted;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: $spacing-md;
+
+    a {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      text-decoration: none;
+      text-transform: lowercase;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+
+  .footer-bottom {
+    @include flex-between;
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      gap: $spacing-sm;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-year {
+    letter-spacing: 0.1em;
+  }
+}

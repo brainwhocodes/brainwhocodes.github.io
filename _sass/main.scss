@@ -1,0 +1,57 @@
+// Main SCSS Entry Point
+
+// Base
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+
+// Components
+@import 'components/navbar';
+@import 'components/buttons';
+@import 'components/cards';
+
+// Sections
+@import 'sections/all';
+
+// Responsive
+@include respond-to(md) {
+  .container {
+    padding: 0 $spacing-md;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+
+  .faq-answer-content {
+    padding-left: 0;
+  }
+}
+
+@include respond-to(sm) {
+  .navbar {
+    padding: $spacing-sm;
+  }
+
+  .hero {
+    padding: 6rem $spacing-sm $spacing-lg;
+  }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

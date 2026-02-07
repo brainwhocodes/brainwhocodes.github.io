@@ -1,0 +1,23 @@
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <nav class="footer-nav">
+                <a href="{{ '/' | relative_url }}">Home</a>
+                <a href="{{ '/#about' | relative_url }}">About</a>
+                <a href="{{ '/#works' | relative_url }}">Works</a>
+                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+            </nav>
+            <span class="footer-divider">|</span>
+            <div class="footer-social">
+                <a href="#">instagram</a>
+                <a href="#">twitter</a>
+                <a href="#">behance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-year">{{ site.time | date: '%Y' }}©</span>
+            <span>( {{ site.time | date: '%y' }} )</span>
+        </div>
+    </div>
+</footer>

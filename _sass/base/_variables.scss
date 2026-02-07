@@ -1,0 +1,34 @@
+// Variables
+$bg-primary: #faf9f7;
+$bg-secondary: #f5f4f2;
+$text-primary: #1a1a1a;
+$text-secondary: #666666;
+$text-muted: #999999;
+$border-color: #e5e5e5;
+$accent-color: #1a1a1a;
+
+// Typography
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+$spacing-2xl: 8rem;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1400px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.4s ease;

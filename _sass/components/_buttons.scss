@@ -1,0 +1,30 @@
+// Buttons
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $text-primary;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  transition: gap $transition-base;
+
+  &:hover {
+    gap: $spacing-sm;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  background: $text-primary;
+  color: $bg-primary;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $text-secondary;
+  }
+}

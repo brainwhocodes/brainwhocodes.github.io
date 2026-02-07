@@ -1,0 +1,107 @@
+// Navigation
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $spacing-lg;
+  @include flex-between;
+  z-index: 1000;
+  background: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(20px);
+
+  .nav-brand .logo-text {
+    font-size: 1rem;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    text-decoration: none;
+  }
+
+  .nav-center {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-menu-btn {
+    font-size: 0.875rem;
+    color: $text-primary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Menu Overlay
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg-primary;
+  z-index: 999;
+  @include flex-center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-slow;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-close {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-lg;
+    font-size: 0.875rem;
+    color: $text-primary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: lowercase;
+  }
+
+  .menu-nav {
+    text-align: center;
+
+    a {
+      display: block;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: $font-weight-medium;
+      color: $text-primary;
+      text-decoration: none;
+      margin: $spacing-sm 0;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  .menu-cta {
+    margin-top: $spacing-xl;
+
+    a {
+      display: inline-block;
+      padding: $spacing-sm $spacing-lg;
+      border: 1px solid $text-primary;
+      color: $text-primary;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all $transition-base;
+
+      &:hover {
+        background: $text-primary;
+        color: $bg-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "build:production": "JEKYLL_ENV=production bundle exec jekyll build",
+    "clean": "bundle exec jekyll clean",
+    "install:jekyll": "bundle install",
+    "preview": "bundle exec jekyll serve --drafts --future"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.69.0",
+    "vite": "^5.0.0"
+  }
+}

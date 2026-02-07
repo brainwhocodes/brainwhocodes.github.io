@@ -1,0 +1,45 @@
+---
+layout: default
+title: Blog
+description: Notes on design, development, and process.
+permalink: /blog/
+---
+
+<section class="blog-index">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Writing</div>
+            <h1 class="section-title">Blog</h1>
+        </div>
+
+        {% if site.posts and site.posts.size > 0 %}
+        <div class="posts-grid">
+            {% for post in site.posts %}
+            <a href="{{ post.url | relative_url }}" class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                    {% if post.tags and post.tags.size > 0 %}
+                    <span class="post-divider">/</span>
+                    <span class="post-tags">{{ post.tags | join: ", " }}</span>
+                    {% endif %}
+                </div>
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.description %}
+                <p class="post-excerpt">{{ post.description }}</p>
+                {% else %}
+                <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</p>
+                {% endif %}
+                <span class="post-read">Read →</span>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="empty-state">No posts yet. Check back soon.</p>
+        {% endif %}
+
+        <div class="page-footer">
+            <a class="about-link" href="{{ '/' | relative_url }}">← Back Home</a>
+        </div>
+    </div>
+</section>
+
