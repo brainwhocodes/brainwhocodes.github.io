@@ -24,8 +24,9 @@ function toggleFaq(element) {
 // Scroll Progress
 function updateScrollProgress() {
     const scrollTop = window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+    const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const rawPercent = (scrollTop / docHeight) * 100;
+    const scrollPercent = Math.min(100, Math.max(0, Math.round(rawPercent)));
     
     const progressElement = document.querySelector('.scroll-progress');
     if (progressElement) {
@@ -35,6 +36,15 @@ function updateScrollProgress() {
 
 // Initialize all functionality
 document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const updateNavOffset = () => {
+        const navHeight = navbar ? navbar.offsetHeight : 0;
+        // Keep CSS and JS anchor offsets aligned with the actual fixed navbar height.
+        document.documentElement.style.setProperty('--nav-offset', `${Math.round(navHeight + 16)}px`);
+    };
+
+    updateNavOffset();
+
     // Menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const menuClose = document.getElementById('menuClose');
@@ -52,19 +62,37 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', (e) => toggleFaq(e.currentTarget));
     });
     
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for in-page hash links (supports "#works" and "/#works").
+    const normalizePath = (path) => path.replace(/\/+$/, '') || '/';
+    const currentPath = normalizePath(window.location.pathname);
+
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            
-            if (target) {
-                const offsetTop = target.offsetTop - 100;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+
+            let url;
+            try {
+                url = new URL(href, window.location.origin);
+            } catch {
+                return;
             }
+
+            if (!url.hash || normalizePath(url.pathname) !== currentPath) return;
+
+            const target = document.querySelector(url.hash);
+            if (!target) return;
+
+            e.preventDefault();
+
+            const navHeight = navbar ? navbar.offsetHeight : 0;
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+
+            window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${url.hash}`);
+            window.scrollTo({
+                top: Math.max(0, offsetTop),
+                behavior: 'smooth'
+            });
         });
     });
     
@@ -108,24 +136,35 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.faq-item').forEach((item, index) => {
         item.style.transitionDelay = `${index * 100}ms`;
     });
+
+    const hero = document.querySelector('.hero');
+    const heroParallaxTarget = hero ? hero.querySelector('.hero-main') : null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     // Scroll events
     window.addEventListener('scroll', () => {
         updateScrollProgress();
         
         // Navbar shadow
-        const navbar = document.querySelector('.navbar');
         if (navbar) {
             navbar.style.boxShadow = window.scrollY > 50 
                 ? '0 1px 0 rgba(0,0,0,0.05)' 
                 : 'none';
         }
-        
-        // Parallax effect for hero
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero && scrolled < window.innerHeight) {
-            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+
+        // Parallax effect for hero content only (keeps section in document flow)
+        if (hero && heroParallaxTarget && !prefersReducedMotion) {
+            const scrolled = window.pageYOffset;
+            const maxOffset = hero.offsetHeight * 0.25;
+            const parallaxOffset = Math.min(scrolled * 0.2, maxOffset);
+            hero.style.setProperty('--hero-parallax', `${parallaxOffset}px`);
         }
-    });
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        updateScrollProgress();
+        updateNavOffset();
+    }, { passive: true });
+    updateNavOffset();
+    updateScrollProgress();
 });

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Blog
-description: Notes on design, development, and process.
+description: Thoughts on AI, automation, and building things that actually work.
 permalink: /blog/
 ---
 
@@ -9,7 +9,7 @@ permalink: /blog/
     <div class="container">
         <div class="section-header">
             <div class="section-label">Writing</div>
-            <h1 class="section-title">Blog</h1>
+            <h1 class="section-title">From the desk</h1>
         </div>
 
         {% if site.posts and site.posts.size > 0 %}
@@ -34,11 +34,11 @@ permalink: /blog/
             {% endfor %}
         </div>
         {% else %}
-        <p class="empty-state">No posts yet. Check back soon.</p>
+        <p class="empty-state">Nothing here yet—I'm probably knee-deep in code. Check back soon.</p>
         {% endif %}
 
         <div class="page-footer">
-            <a class="about-link" href="{{ '/' | relative_url }}">← Back Home</a>
+            <a class="about-link" href="{{ '/' | relative_url }}">← Back to homepage</a>
         </div>
     </div>
 </section>

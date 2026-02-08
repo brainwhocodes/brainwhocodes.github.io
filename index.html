@@ -1,28 +1,27 @@
 ---
 layout: default
-title: Your Name | Web Designer & Developer
+title: Brain Who Codes
 ---
 
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="hero-top">
         <div class="hero-label">
-            art-direction<br>
-            web design<br>
-            development
+            ai solutions<br>
+            automation<br>
+            web development
         </div>
     </div>
     <div class="hero-main">
         <h1 class="hero-title">
-            <span>YOUR NAME</span>
-            <span>PORTFOLIO</span>
+            <span>BRAIN WHO CODES</span>
         </h1>
         <p class="hero-subtitle">
-            Custom web design tailored to your brand. Creating strategic digital assets that elevate your presence and engage your audience.
+            I build AI tools that actually work. No fluff, no overpromising. Whether you need a tedious workflow automated or an AI feature baked into your product, I help businesses save hours without drowning in complexity.
         </p>
     </div>
     <div class="hero-bottom">
-        <div class="hero-meta">( S )</div>
+        <div class="hero-meta"></div>
         <div class="scroll-progress">0%</div>
     </div>
 </section>
@@ -33,19 +32,21 @@ title: Your Name | Web Designer & Developer
         <div class="about-header">
             <div class="about-label">about me</div>
             <h2 class="about-title">
-                A bespoke web designer on a mission to elevate value driven brands.
+                A developer with deep roots in web design, now focused on building AI-powered solutions that actually work.
             </h2>
         </div>
         <div class="about-content">
             <div class="about-image">
-                <span>Your Photo</span>
+                <img src="{{ '/assets/images/about/ai-developer-portrait.webp' | relative_url }}" alt="Portrait of an AI developer at a workstation">
             </div>
             <div class="about-text">
                 <p class="about-description">
-                    I create strategic assets that elevate your brand, engage your audience, amplify your presence, and differentiate you from the crowd. With a focus on clean design and thoughtful user experiences, I help businesses make a lasting impression online.
+                    Here's the thing. I spent years building websites and designing brand experiences. That same obsession with clean code and intuitive design? I bring all of it to AI projects. 
+                    
+                    You know what frustrates me? AI tools that promise the moon but break when you need them most. So I build differently. With safety nets, clear error handling, and human oversight where it matters. The result? AI that fits into your workflow like it was always meant to be there.
                 </p>
-                <a href="#" class="about-link">
-                    Learn More →
+                <a href="#works" class="about-link">
+                    Browse recent projects →
                 </a>
             </div>
         </div>
@@ -56,9 +57,9 @@ title: Your Name | Web Designer & Developer
 <section id="works" class="projects">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Featured</div>
+            <div class="section-label">Featured Work</div>
             <h2 class="section-title">
-                A collection of recent work showcasing expertise in art direction, brand identity design, and web development.
+                Recent projects showcasing AI solutions, automation systems, and the craft that goes into making them reliable.
             </h2>
         </div>
         <div class="projects-grid">
@@ -82,43 +83,33 @@ title: Your Name | Web Designer & Developer
     </div>
 </section>
 
-<!-- Blog Section -->
-<section id="blog" class="blog">
+<!-- Services Section -->
+<section id="services" class="services">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Writing</div>
+            <div class="section-label">Services</div>
             <h2 class="section-title">
-                Notes on design, development, and process.
+                What I can help you build.
             </h2>
         </div>
-
-        {% if site.posts and site.posts.size > 0 %}
-        <div class="posts-grid">
-            {% for post in site.posts limit:4 %}
-            <a href="{{ post.url | relative_url }}" class="post-card">
-                <div class="post-meta">
-                    <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                    {% if post.tags and post.tags.size > 0 %}
-                    <span class="post-divider">/</span>
-                    <span class="post-tags">{{ post.tags | join: ", " }}</span>
-                    {% endif %}
-                </div>
-                <h3 class="post-title">{{ post.title }}</h3>
-                {% if post.description %}
-                <p class="post-excerpt">{{ post.description }}</p>
-                {% else %}
-                <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
-                {% endif %}
-                <span class="post-read">Read →</span>
-            </a>
-            {% endfor %}
+        <div class="services-grid">
+            <div class="service-item">
+                <h3 class="service-title">AI Integration</h3>
+                <p class="service-description">Connect AI models—like GPT-4, Claude, or image generators—into your existing apps. I handle the messy integration work so your team can focus on what they do best.</p>
+            </div>
+            <div class="service-item">
+                <h3 class="service-title">Workflow Automation</h3>
+                <p class="service-description">Tired of copying data between apps? I build automation that handles repetitive tasks—data entry, report generation, content pipelines—so you can reclaim your afternoons.</p>
+            </div>
+            <div class="service-item">
+                <h3 class="service-title">Custom AI Tools</h3>
+                <p class="service-description">Need something custom? I build AI tools tailored to your specific problem—whether that's a private document analyzer, a content assistant, or an internal research tool.</p>
+            </div>
+            <div class="service-item">
+                <h3 class="service-title">Web Development</h3>
+                <p class="service-description">Sometimes you just need a solid website or web app. I build with React, Node, and modern frameworks—bringing in AI only when it genuinely adds value.</p>
+            </div>
         </div>
-        <div class="blog-footer">
-            <a href="{{ '/blog/' | relative_url }}" class="about-link">View all posts →</a>
-        </div>
-        {% else %}
-        <p class="empty-state">No posts yet.</p>
-        {% endif %}
     </div>
 </section>
 
@@ -128,23 +119,23 @@ title: Your Name | Web Designer & Developer
         <div class="faq-grid">
             <div class="section-header">
                 <div class="section-label">FAQ</div>
-                <h2 class="section-title">Information</h2>
+                <h2 class="section-title">Questions? I've got answers.</h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="faq-number">01</span>
-                        <span class="faq-question-text">What services do you offer?</span>
+                        <span class="faq-question-text">So what exactly do you build?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <strong>Art-Direction</strong>
-                            <p>Crafting a compelling visual strategy that elevates your brand's unique story and ensures every element communicates with purpose.</p>
-                            <strong>Web-Design</strong>
-                            <p>A custom-designed website that suits your business objectives, elevating your brand to build trust, recognition, and drives engagement.</p>
-                            <strong>Development</strong>
-                            <p>Develop your website with modern technologies, ensuring fast, responsive, and scalable solutions.</p>
+                            <strong>AI Integration</strong>
+                            <p>Connecting language models and image generation APIs into your existing apps—think of it as giving your software a brain upgrade without rebuilding everything.</p>
+                            <strong>Automation Systems</strong>
+                            <p>End-to-end workflows that combine AI with traditional scripting. The kind of stuff that saves your team hours every week.</p>
+                            <strong>Custom Tools</strong>
+                            <p>Specialized AI applications built for your specific problem—document analyzers, content helpers, research assistants, you name it.</p>
                         </div>
                     </div>
                 </div>
@@ -152,12 +143,12 @@ title: Your Name | Web Designer & Developer
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="faq-number">02</span>
-                        <span class="faq-question-text">I already have a brand, will you just do the web design?</span>
+                        <span class="faq-question-text">Wait, do you still build regular websites?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>Yes. If you already have a brand and style guidelines, I will use them to design a website tailored to your brand.</p>
+                            <p>Absolutely! I still build websites and web apps—React, Node, the whole modern stack. Honestly, most projects blend both worlds: a solid web foundation with smart AI features sprinkled in where they make sense. The craft matters either way.</p>
                         </div>
                     </div>
                 </div>
@@ -165,12 +156,12 @@ title: Your Name | Web Designer & Developer
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="faq-number">03</span>
-                        <span class="faq-question-text">How long does a project typically take?</span>
+                        <span class="faq-question-text">How do you actually work?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>This depends on a number of factors, including project scope, complexity, and our working rapport. To give a general estimate: the design phase may take up to a month, depending on the scope and complexity, with development typically requiring a similar amount of time.</p>
+                            <p>I'm big on pragmatism. AI is amazing, sure—but it's also unpredictable. So I build safety nets: validation checks, fallback options, human oversight where it counts. You shouldn't need a PhD to use what I build. It should just... work.</p>
                         </div>
                     </div>
                 </div>
@@ -178,12 +169,12 @@ title: Your Name | Web Designer & Developer
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="faq-number">04</span>
-                        <span class="faq-question-text">What are your prices?</span>
+                        <span class="faq-question-text">Okay, what's this going to cost?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>There are a number of factors that go into pricing, as every project has different requirements and varying levels of complexity. It's similar to asking, "How much does a car cost?" - there's a wide range depending on the type and features. Contact me for a custom quote based on your specific needs.</p>
+                            <p>It really depends. A simple API integration might be a quick project; training a custom model is a different beast entirely. Shoot me an email with what you're thinking—I'll give you a straightforward quote, no hidden fees or surprises.</p>
                         </div>
                     </div>
                 </div>
@@ -195,10 +186,10 @@ title: Your Name | Web Designer & Developer
 <!-- CTA Section -->
 <section class="cta">
     <div class="container">
-        <h2 class="cta-title">Let's work together!</h2>
+        <h2 class="cta-title">Let's build something intelligent.</h2>
         <p class="cta-text">
-            I look forward to working with you to promote products and services that make a positive impact.
+            Whether you need AI integration, workflow automation, or a custom solution, I'd love to hear about your project.
         </p>
-        <a href="mailto:your.email@example.com" class="cta-button">Reach Out</a>
+        <a href="mailto:your.email@example.com" class="cta-button">Get in touch</a>
     </div>
 </section>

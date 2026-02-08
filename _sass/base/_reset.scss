@@ -8,7 +8,14 @@
 }
 
 html {
+  --nav-offset: clamp(5rem, 8vw, 7rem);
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset);
+}
+
+section[id],
+article[id] {
+  scroll-margin-top: var(--nav-offset);
 }
 
 body {

@@ -1,24 +1,24 @@
 <!-- Navigation -->
 <nav class="navbar">
     <div class="nav-brand">
-        <a href="{{ '/' | relative_url }}" class="logo-text">{{ site.title | split: ' |' | first }}</a>
+        <a href="{{ '/' | relative_url }}" class="logo-text">{{ site.title }}</a>
     </div>
     <div class="nav-center">
-        web design<br>development
+        ai solutions &<br>smart automation
     </div>
-    <button class="nav-menu-btn" id="menuBtn">menu</button>
+    <button class="nav-menu-btn" id="menuBtn">Menu</button>
 </nav>
 
 <!-- Menu Overlay -->
 <div class="menu-overlay" id="menuOverlay">
-    <button class="menu-close" id="menuClose">Close</button>
+    <button class="menu-close" id="menuClose">✕ Close</button>
     <nav class="menu-nav">
         <a href="{{ '/' | relative_url }}">Home</a>
         <a href="{{ '/#about' | relative_url }}">About</a>
-        <a href="{{ '/#works' | relative_url }}">Works</a>
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a href="{{ '/#works' | relative_url }}">Work</a>
+        <a href="{{ '/#services' | relative_url }}">Services</a>
     </nav>
     <div class="menu-cta">
-        <a href="mailto:your.email@example.com">start a project</a>
+        <a href="mailto:your.email@example.com">Let's talk →</a>
     </div>
 </div>

@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "base64"
 gem "bigdecimal"
+gem "cgi"
 gem "csv"
 gem "jekyll", "3.8.7"
 gem "ffi", "1.15.5"

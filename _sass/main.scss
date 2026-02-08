@@ -43,6 +43,11 @@
   .hero {
     padding: 6rem $spacing-sm $spacing-lg;
   }
+
+  .scroll-progress {
+    right: $spacing-sm;
+    bottom: $spacing-sm;
+  }
 }
 
 // Reduced Motion

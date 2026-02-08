@@ -1,6 +1,6 @@
 # Site settings
-title: Your Name | Web Designer & Developer
-description: Custom web design tailored to your brand. Creating strategic digital assets that elevate your presence and engage your audience.
+title: Brain Who Codes
+description: Hi, I'm Brain—an AI developer who builds smart tools that save you time. From workflow automation to custom AI integrations, I help businesses work smarter without the tech headaches.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 

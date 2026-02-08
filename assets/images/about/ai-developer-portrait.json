@@ -1,0 +1,12 @@
+{
+  "model": "black-forest-labs/flux.2-max",
+  "modalities": [
+    "image"
+  ],
+  "count": 1,
+  "files": [
+    "/Users/wwilson/portfolio/assets/images/about/ai-developer-portrait.png"
+  ],
+  "response_id": "gen-1770459302-iW7RkcjTyWHgjUIcO6bB",
+  "warnings": []
+}
