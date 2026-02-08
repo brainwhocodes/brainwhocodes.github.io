@@ -296,6 +296,24 @@
     max-width: 800px;
   }
 
+  .post-tldr {
+    margin-top: $spacing-md;
+    margin-bottom: 0;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid rgba($text-primary, 0.08);
+    border-radius: 10px;
+    background: rgba($text-primary, 0.03);
+    font-size: 1rem;
+    color: $text-secondary;
+    line-height: 1.7;
+    max-width: 800px;
+
+    strong {
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+
   .post-content {
     max-width: 800px;
     margin-inline: auto;

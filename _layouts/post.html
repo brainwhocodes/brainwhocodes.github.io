@@ -20,6 +20,9 @@ layout: default
             {% if page.description %}
             <p class="post-description">{{ page.description }}</p>
             {% endif %}
+            {% if page.tldr %}
+            <p class="post-tldr"><strong>TL;DR:</strong> {{ page.tldr }}</p>
+            {% endif %}
         </header>
 
         <div class="post-content prose">
@@ -31,4 +34,3 @@ layout: default
         </footer>
     </div>
 </article>
-
