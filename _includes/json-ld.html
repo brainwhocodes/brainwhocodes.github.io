@@ -1,0 +1,81 @@
+{% assign canonical_url = page.url | replace: 'index.html', '' | absolute_url %}
+{% assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | replace: '  ', ' ' %}
+{% assign author_name = site.title %}
+
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | default: site.title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ canonical_url | jsonify }}
+  },
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ author_name | jsonify }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ author_name | jsonify }}
+  }{% if page.tags and page.tags.size > 0 %},
+  "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}{% if page.image or page.thumbnail %},
+  "image": {{ page.image | default: page.thumbnail | absolute_url | jsonify }}{% endif %}
+}
+</script>
+{% elsif page.layout == "project" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": {{ page.title | default: site.title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "creator": {
+    "@type": "Person",
+    "name": {{ author_name | jsonify }}
+  }{% if page.category %},
+  "genre": {{ page.category | jsonify }}{% endif %}{% if page.thumbnail %},
+  "image": {{ page.thumbnail | absolute_url | jsonify }}{% endif %}
+}
+</script>
+{% elsif page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "description": {{ site.description | jsonify }}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.title | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "sameAs": [
+    "https://x.com/brainwhocodes",
+    "https://github.com/brainwhocodes"
+  ]
+}
+</script>
+{% elsif page.url == "/blog/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page.title | default: "Blog" | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "url": {{ canonical_url | jsonify }}
+}
+</script>
+{% endif %}
