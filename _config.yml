@@ -1,6 +1,7 @@
 # Site settings
 title: Brain Who Codes
 description: Hi, I'm Brain, an AI developer focused on audio, text-to-speech, image generation, video workflows, and agentic coding systems that help existing teams work faster.
+default_social_image: /assets/images/about/ai-developer-portrait.webp
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://brainwhocodes.github.io/"
 

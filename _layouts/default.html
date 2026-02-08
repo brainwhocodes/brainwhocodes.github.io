@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% assign social_title = page.title | default: site.title %}
+    {% assign social_description = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | replace: '  ', ' ' %}
+    {% assign social_url = page.url | replace: 'index.html', '' | absolute_url %}
+    {% assign social_type = "website" %}
+    {% if page.layout == "post" or page.layout == "project" %}
+        {% assign social_type = "article" %}
+    {% endif %}
+    {% assign social_image = page.image | default: page.thumbnail | default: site.default_social_image %}
+    {% if social_image %}
+        {% assign social_image_abs = social_image | absolute_url %}
+    {% endif %}
+    {% assign social_image_alt = page.image_alt | default: page.title | default: site.title %}
+    {% assign twitter_card = "summary" %}
+    {% if social_image_abs %}
+        {% assign twitter_card = "summary_large_image" %}
+    {% endif %}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="google-site-verification" content="cQ4b8HUc3qruqp7L7aAFAH6wv-LunHh05VekN0aHzUI">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="{{ social_type }}">
+    <meta property="og:title" content="{{ social_title }}">
+    <meta property="og:description" content="{{ social_description }}">
+    <meta property="og:url" content="{{ social_url }}">
+    {% if social_image_abs %}
+    <meta property="og:image" content="{{ social_image_abs }}">
+    <meta property="og:image:alt" content="{{ social_image_alt }}">
+    {% endif %}
+    {% if (page.layout == "post" or page.layout == "project") and page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    {% endif %}
+    <meta name="twitter:card" content="{{ twitter_card }}">
+    <meta name="twitter:title" content="{{ social_title }}">
+    <meta name="twitter:description" content="{{ social_description }}">
+    <meta name="twitter:url" content="{{ social_url }}">
+    {% if social_image_abs %}
+    <meta name="twitter:image" content="{{ social_image_abs }}">
+    <meta name="twitter:image:alt" content="{{ social_image_alt }}">
+    {% endif %}
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +61,11 @@
 </head>
 <body>
     {% include navigation.html %}
-    
-    {{ content }}
-    
+
+    <main id="main-content">
+        {{ content }}
+    </main>
+
     {% include footer.html %}
     
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
