@@ -2,6 +2,7 @@
 title: Welcome to the blog
 description: A quick note on what I'll be sharing here.
 tags: [updates, process]
+permalink: /blog/2026/02/01/welcome-to-the-blog/
 ---
 
 This blog is where I share what I build, what worked, and what I'd change next time. Posts are short, practical, and based on real project work from this portfolio.

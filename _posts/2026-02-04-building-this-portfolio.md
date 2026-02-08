@@ -2,6 +2,7 @@
 title: Building this portfolio
 description: What I learned testing LLM coding with a reference website and minimal tweaks.
 tags: [design, development]
+permalink: /blog/2026/02/04/building-this-portfolio/
 ---
 
 This portfolio started as an experiment, I gave an LLM a reference website and asked it to rebuild the feel with only minimal tweaks. I wanted to see how far AI-assisted coding could go before manual edits became the faster path.

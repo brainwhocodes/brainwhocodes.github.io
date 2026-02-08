@@ -2,12 +2,12 @@
 title: Brain Who Codes
 description: Hi, I'm Brain, an AI developer focused on audio, text-to-speech, image generation, video workflows, and agentic coding systems that help existing teams work faster.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://brainwhocodes.github.io/"
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: pretty
+permalink: /blog/:year/:month/:day/:slug/
 excerpt_separator: "<!--more-->"
 
 # Plugins
@@ -42,7 +42,7 @@ exclude:
 collections:
   projects:
     output: true
-    permalink: /:collection/:year/:month/:day/:slug/
+    permalink: /work/:year/:slug/
 
 # Default front matter
 defaults:
