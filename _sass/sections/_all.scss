@@ -121,6 +121,31 @@
   }
 }
 
+// Availability Note
+.availability {
+  padding: 0 0 $spacing-xl;
+
+  .availability-card {
+    max-width: 900px;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    background: rgba($bg-secondary, 0.6);
+    padding: $spacing-md $spacing-lg;
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  strong {
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
 // About Section
 .about {
   @include section-padding;
@@ -311,6 +336,23 @@
     margin-top: $spacing-sm;
   }
 
+  .project-tldr {
+    margin-top: $spacing-md;
+    margin-bottom: 0;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid rgba($text-primary, 0.08);
+    border-radius: 10px;
+    background: rgba($text-primary, 0.03);
+    font-size: 1rem;
+    color: $text-secondary;
+    line-height: 1.7;
+
+    strong {
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+
   .project-description {
     margin-top: $spacing-md;
     font-size: 1.125rem;
@@ -419,6 +461,54 @@
         padding: 0;
         background: none;
         border: none;
+      }
+    }
+
+    .comparison-prompt {
+      margin: 0 0 $spacing-md;
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid rgba($text-primary, 0.08);
+      border-radius: 10px;
+      background: rgba($text-primary, 0.03);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: $text-secondary;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $spacing-md;
+      margin: 0 0 $spacing-lg;
+
+      @include respond-to(md) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .comparison-card {
+      margin: 0;
+      border: 1px solid rgba($text-primary, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      background: $bg-secondary;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      figcaption {
+        margin: 0;
+        padding: $spacing-sm $spacing-md;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: $text-secondary;
+
+        strong {
+          color: $text-primary;
+        }
       }
     }
   }

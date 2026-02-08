@@ -1,7 +1,0 @@
-{
-  "model": "black-forest-labs/flux.2-max",
-  "source": "/tmp/project-imagegen-themed/image-001.webp",
-  "prompt": "Hero artwork focused on AI image generation workflow for a developer skill: large monitor showing a grid of multiple generated image variations, prompt-to-image pipeline visualized with nodes, seed/parameter sliders, upscaling and refinement steps, tablet with sketch evolving into polished render, cinematic desk scene with camera and stylus, vibrant but professional lighting, high-detail editorial composition, clearly about creating images with AI tools. No readable text, no logos, no watermarks.",
-  "optimized_webp": true,
-  "generated_at": "2026-02-07"
-}
