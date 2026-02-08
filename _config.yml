@@ -1,6 +1,6 @@
 # Site settings
 title: Brain Who Codes
-description: Hi, I'm Brain—an AI developer who builds smart tools that save you time. From workflow automation to custom AI integrations, I help businesses work smarter without the tech headaches.
+description: Hi, I'm Brain, an AI developer focused on audio, text-to-speech, image generation, video workflows, and agentic coding systems that help existing teams work faster.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -42,7 +42,7 @@ exclude:
 collections:
   projects:
     output: true
-    permalink: /:collection/:name/
+    permalink: /:collection/:year/:month/:day/:slug/
 
 # Default front matter
 defaults:
@@ -56,7 +56,7 @@ defaults:
       type: "posts"
     values:
       layout: post
-      permalink: /blog/:title/
+      permalink: /blog/:year/:month/:day/:slug/
   - scope:
       path: ""
     values:
