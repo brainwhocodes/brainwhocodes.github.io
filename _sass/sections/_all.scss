@@ -529,6 +529,25 @@
         }
       }
     }
+
+    .project-figure {
+      margin: $spacing-lg 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid rgba($text-primary, 0.08);
+        border-radius: 12px;
+      }
+
+      figcaption {
+        margin-top: $spacing-sm;
+        font-size: 0.9rem;
+        color: $text-secondary;
+        line-height: 1.6;
+      }
+    }
   }
 
   .project-footer {

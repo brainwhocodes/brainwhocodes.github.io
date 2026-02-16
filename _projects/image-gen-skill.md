@@ -1,15 +1,15 @@
 ---
-title: OpenRouter Flux 2 (Klein + Max) Image Generation Skill for Codex CLI
+title: Image-Gen Skill for Codex CLI (Flux + Seedream)
 category: AI Tooling
 year: 2026
 date: 2026-01-01
-tldr: I built a terminal-first skill that generates repeatable Flux Klein and Max images fast, so content and product teams can move from idea to publish-ready visuals without manual download steps. Or having to create applications or workflows to generate images.
+tldr: I built a terminal-first image-gen skill that generates repeatable Flux and Seedream outputs fast, so content and product teams can move from idea to publish-ready visuals without manual download steps.
 thumbnail: /assets/images/projects/openrouter-flux-klein-image-skill.webp
 ---
 
 I built this skill to generate production-ready images from the terminal and keep the whole flow local. No copy and paste, no manual downloads, no guesswork on where files ended up.
 
-It supports `black-forest-labs/flux.2-klein-4b` as the fast default in my OpenRouter setup.<sup><a href="#ref-7">7</a></sup> That model maps to FLUX.2 klein from Black Forest Labs.<sup><a href="#ref-4">4</a></sup> It can also switch to `black-forest-labs/flux.2-max` when I want more detail.<sup><a href="#ref-8">8</a></sup> That model maps to FLUX.2 max from Black Forest Labs.<sup><a href="#ref-5">5</a></sup> Both models come from Black Forest Labs.<sup><a href="#ref-6">6</a></sup>
+It supports `black-forest-labs/flux.2-klein-4b` as the fast default in my OpenRouter setup.<sup><a href="#ref-7">7</a></sup> That model maps to FLUX.2 klein from Black Forest Labs.<sup><a href="#ref-4">4</a></sup> It can also switch to `black-forest-labs/flux.2-max` when I want more detail.<sup><a href="#ref-8">8</a></sup> That model maps to FLUX.2 max from Black Forest Labs.<sup><a href="#ref-5">5</a></sup> I also added `bytedance-seed/seedream-4.5` as an option for a different visual style.<sup><a href="#ref-9">9</a></sup> The Flux models come from Black Forest Labs.<sup><a href="#ref-6">6</a></sup>
 
 ## What this project includes
 
@@ -100,21 +100,21 @@ Why this is useful: product and content teams can ship a clear visual story the 
 When I run this in Codex CLI, I call the skill and describe what I want in plain language.
 
 ```text
-$openrouter-flux-klein-image-gen
+$image-gen-skill
 Create a Klein and Max pair for a cozy podcast studio at night.
 Use this prompt: Editorial photo of a cozy podcast recording studio at night, warm practical lights, analog synth on desk, soft haze, cinematic composition, no text, no logos, no watermarks.
 Use 16:9, 1K, seed 2401.
 ```
 
 ```text
-$openrouter-flux-klein-image-gen
+$image-gen-skill
 Create a Klein and Max pair for an indie game team standup scene.
 Use this prompt: Wide shot of a small indie game team in a bright office during standup, sticky notes on glass, laptops open, natural morning light, documentary photography style, no text, no logos, no watermarks.
 Use 16:9, 1K, seed 7312.
 ```
 
 ```text
-$openrouter-flux-klein-image-gen
+$image-gen-skill
 Create a Klein and Max pair for a video editing desk scene.
 Use this prompt: Cinematic still of a creator editing a short video on a dual-monitor setup, waveform timeline visible, coffee mug and notebook nearby, moody teal and amber lighting, no text, no logos, no watermarks.
 Use 16:9, 1K, seed 9904.
@@ -179,6 +179,17 @@ python3 scripts/generate_image.py \
   --output prompt-03-max.png
 ```
 
+```bash
+# Optional Seedream run
+python3 scripts/generate_image.py \
+  --prompt "Cinematic still of a creator editing a short video on a dual-monitor setup, waveform timeline visible, coffee mug and notebook nearby, moody teal and amber lighting, no text, no logos, no watermarks" \
+  --model-variant seedream \
+  --aspect-ratio 16:9 \
+  --image-size 1K \
+  --seed 9904 \
+  --output prompt-03-seedream.png
+```
+
 ## Citations
 
 1. <a id="ref-1"></a>[OpenRouter Quickstart](https://openrouter.ai/docs/quickstart)
@@ -188,6 +199,7 @@ python3 scripts/generate_image.py \
 5. <a id="ref-5"></a>[FLUX.2 max (Black Forest Labs)](https://bfl.ai/models/flux-2-max)
 7. <a id="ref-7"></a>[FLUX.2 Klein 4B on OpenRouter](https://openrouter.ai/black-forest-labs/flux.2-klein-4b)
 8. <a id="ref-8"></a>[FLUX.2 Max on OpenRouter](https://openrouter.ai/black-forest-labs/flux.2-max)
+9. <a id="ref-9"></a>[Seedream 4.5 on OpenRouter](https://openrouter.ai/bytedance-seed/seedream-4.5)
 
 ## Current status
 
